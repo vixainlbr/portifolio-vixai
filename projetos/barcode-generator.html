@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projeto: Gerador de Códigos de Barras | VIXAI</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-50 text-gray-900">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
   <script>
     function toggleLanguage() {
       const pt = document.querySelectorAll('.lang-pt');
@@ -14,7 +13,24 @@
       pt.forEach(el => el.classList.toggle('hidden'));
       en.forEach(el => el.classList.toggle('hidden'));
     }
+    function generateBarcode() {
+      let code = document.getElementById("barcodeInput").value;
+      if (code.trim() === "") {
+        alert("Please enter a valid code!");
+        return;
+      }
+      JsBarcode("#barcode", code, {
+        format: "CODE128",
+        displayValue: true,
+        lineColor: "#000",
+        width: 2,
+        height: 50,
+      });
+      setTimeout(() => window.print(), 500);
+    }
   </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
   <header class="bg-white shadow p-6 flex justify-between items-center">
     <a href="/" class="flex items-center space-x-2">
       <img src="/logo.png" alt="Logo VIXAI" class="w-10">
@@ -29,56 +45,61 @@
   </header>
 
   <main class="max-w-4xl mx-auto p-6">
+    <!-- Gerador Funcional -->
+    <section class="bg-white p-6 rounded shadow mb-10">
+      <h2 class="text-2xl font-bold mb-4 lang-en">Try the Barcode Generator</h2>
+      <h2 class="text-2xl font-bold mb-4 lang-pt hidden">Teste o Gerador de Código de Barras</h2>
+      <input type="text" id="barcodeInput" placeholder="Enter your code here / Digite seu código" class="w-full p-2 border rounded mb-4">
+      <button onclick="generateBarcode()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Generate</button>
+      <div id="printArea" class="mt-6 flex justify-center">
+        <svg id="barcode"></svg>
+      </div>
+    </section>
+
+    <!-- Seções abaixo mantidas -->
     <h1 class="text-3xl font-bold mb-2 lang-en">Barcode Generator Web App</h1>
-<h1 class="text-3xl font-bold mb-2 lang-pt hidden">Gerador de Códigos de Barras</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Gerador de Códigos de Barras</h1>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
-<h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
-<p class="text-gray-700 lang-en">
-        Web-based tool for generating CODE128 barcodes. Supports manual input, real-time rendering, and direct printing from the browser.
-      </p>
-<p class="text-gray-700 lang-pt hidden">
-        Ferramenta online para geração rápida de códigos de barras no formato CODE128. Permite entrada de código manual, visualização instantânea do código e opção de impressão.
-      </p>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
+      <p class="text-gray-700 lang-en">Web-based tool for generating CODE128 barcodes. Supports manual input, real-time rendering, and direct printing from the browser.</p>
+      <p class="text-gray-700 lang-pt hidden">Ferramenta online para geração rápida de códigos de barras no formato CODE128. Permite entrada de código manual, visualização instantânea do código e opção de impressão.</p>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Technologies Used</h2>
-<h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
       <ul class="list-disc list-inside text-gray-700">
         <li>HTML, CSS, JavaScript</li>
-        <li>Biblioteca JsBarcode</li>
-        <li>Função de impressão nativa do navegador</li>
+        <li>JsBarcode</li>
+        <li>Browser print functionality</li>
       </ul>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
-<h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
-<p class="text-gray-700 lang-en">Many small businesses and logistics operators need to quickly generate custom barcode labels without installing complex systems. This tool solves that with a simple browser-based interface.</p>
-<p class="text-gray-700 lang-pt hidden">
-        Pequenos negócios e operadores logísticos muitas vezes precisam gerar etiquetas de código de barras personalizadas rapidamente, sem instalar sistemas complexos. Essa ferramenta resolve esse problema com uma interface simples e funcional direto do navegador.
-      </p>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
+      <p class="text-gray-700 lang-en">Many small businesses and logistics operators need to quickly generate custom barcode labels without installing complex systems. This tool solves that with a simple browser-based interface.</p>
+      <p class="text-gray-700 lang-pt hidden">Pequenos negócios e operadores logísticos muitas vezes precisam gerar etiquetas de código de barras personalizadas rapidamente, sem instalar sistemas complexos. Essa ferramenta resolve esse problema com uma interface simples e funcional direto do navegador.</p>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Demo</h2>
-<h2 class="text-xl font-semibold mb-2 lang-pt hidden">Demonstração</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Demonstração</h2>
       <img src="/screenshots/barcode-generator.png" alt="Screenshot do sistema" class="rounded shadow w-full max-w-xl">
-      <!-- opcional: <video controls class="mt-4 w-full max-w-xl"><source src="/videos/barcode-demo.mp4" type="video/mp4"></video> -->
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Repository</h2>
-<h2 class="text-xl font-semibold mb-2 lang-pt hidden">Repositório</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Repositório</h2>
       <a href="https://github.com/seuusuario/barcode-generator" class="text-blue-600 hover:underline" target="_blank">
         github.com/seuusuario/barcode-generator
       </a>
     </section>
 
     <a href="/projetos.html" class="text-blue-600 hover:underline lang-en">← Back to all projects</a>
-<a href="/projetos.html" class="text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
+    <a href="/projetos.html" class="text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
   </main>
 
   <footer class="text-center p-6 text-gray-500 text-sm">
