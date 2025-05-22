@@ -1,1 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto: Automação WhatsApp com IA | VIXAI</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script>
+    function toggleLanguage() {
+      const pt = document.querySelectorAll('.lang-pt');
+      const en = document.querySelectorAll('.lang-en');
+      pt.forEach(el => el.classList.toggle('hidden'));
+      en.forEach(el => el.classList.toggle('hidden'));
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <header class="bg-white shadow p-6 flex justify-between items-center">
+    <a href="/" class="flex items-center space-x-2">
+      <img src="/logo.png" alt="Logo VIXAI" class="w-10">
+      <span class="font-bold text-xl">VIXAI</span>
+    </a>
+    <nav class="space-x-4">
+      <button onclick="toggleLanguage()" class="text-sm bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded">PT / EN</button>
+      <a href="/" class="text-gray-700 hover:underline">Home</a>
+      <a href="/projetos.html" class="text-gray-700 hover:underline">Projetos</a>
+      <a href="/contato" class="text-gray-700 hover:underline">Contato</a>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-2 lang-en">WhatsApp Message Automation with AI</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Automação de Mensagens no WhatsApp com IA</h1>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
+      <p class="text-gray-700 lang-en">System that integrates WhatsApp via Make/Zapier with OpenAI API to send AI-personalized messages based on customer behavior and tags.</p>
+      <p class="text-gray-700 lang-pt hidden">Sistema que integra WhatsApp via Make/Zapier com a API da OpenAI para enviar mensagens personalizadas com IA com base no comportamento e nos perfis dos clientes.</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Technologies Used</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Make.com ou Zapier</li>
+        <li>OpenAI API (GPT)</li>
+        <li>Google Sheets ou Airtable</li>
+        <li>WhatsApp Business + Meta Business</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
+      <p class="text-gray-700 lang-en">Manual customer outreach via WhatsApp is time-consuming and inconsistent. This system automates follow-ups with smart, timed messages for better engagement.</p>
+      <p class="text-gray-700 lang-pt hidden">O contato manual com clientes via WhatsApp consome tempo e é inconsistente. Esse sistema automatiza o envio de mensagens inteligentes e cronometradas para maior engajamento.</p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Screenshot</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Captura de Tela</h2>
+      <img src="/screenshots/whatsapp-automation.png" alt="Exemplo de automação WhatsApp" class="rounded shadow w-full max-w-xl">
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Repository</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Repositório</h2>
+      <a href="https://github.com/vixainlbr/portifolio-vixai/tree/main/projetos/whatsapp-automation.html" class="text-blue-600 hover:underline" target="_blank">
+        github.com/vixainlbr/portifolio-vixai/tree/main/projetos/whatsapp-automation.html
+      </a>
+    </section>
+
+    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-en">← Back to all projects</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
+  </main>
+
+  <footer class="text-center p-6 text-gray-500 text-sm">
+    &copy; 2025 VIXAI. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
 
