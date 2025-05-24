@@ -52,10 +52,10 @@
       body * {
         visibility: hidden;
       }
-      #printArea, #qrPrintArea, #printArea *, #qrPrintArea * {
+      #printArea, #qrCode, #printArea * {
         visibility: visible;
       }
-      #printArea, #qrPrintArea {
+      #printArea, #qrCode {
         position: absolute;
         top: 0;
         left: 0;
@@ -105,13 +105,50 @@
         <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de QR Code</h2>
         <input type="text" id="qrInput" placeholder="Enter your content / Digite seu conteúdo" class="w-full p-2 border rounded mb-4">
         <button onclick="generateQRCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate</button>
-        <div id="qrPrintArea" class="mt-6 flex justify-center">
-          <div id="qrCode"></div>
-        </div>
+        <div id="qrCode" class="mt-6 flex justify-center"></div>
       </section>
     </div>
 
-    <!-- Overview, Technologies, Problem Solved ... (mantido como antes) -->
+    <!-- Overview -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Overview</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
+      <p class="text-gray-700 lang-en">
+        Lightweight web tool for generating both CODE128 barcodes and QR Codes. Built to work directly from the browser, it supports real-time rendering, direct printing, and zero setup — ideal for logistics, inventory, retail, and office use.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        Ferramenta web leve para gerar códigos de barras CODE128 e QR Codes. Funciona diretamente no navegador, com renderização instantânea, impressão direta e sem necessidade de instalação — ideal para logística, estoque, varejo e uso interno.
+      </p>
+    </section>
+
+    <!-- Technologies -->
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Technologies Used</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>HTML, CSS, JavaScript</li>
+        <li>JsBarcode</li>
+        <li>QRCode.js</li>
+        <li>TailwindCSS</li>
+        <li>Print via browser</li>
+      </ul>
+    </section>
+
+    <!-- Problem Solved -->
+    <section class="mt-8 mb-10">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Problem Solved</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
+      <p class="text-gray-700 lang-en">
+        Generating labels usually requires specialized software or ERP integration. This tool simplifies everything — allowing anyone to produce printable barcodes or QR codes in seconds, without technical overhead. Save time, reduce costs, and streamline your daily operations.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        A geração de etiquetas normalmente exige softwares específicos ou integração com ERPs. Esta ferramenta simplifica tudo — permitindo que qualquer pessoa crie códigos de barras ou QR Codes imprimíveis em segundos, sem complexidade técnica. Economize tempo, reduza custos e agilize sua operação.
+      </p>
+    </section>
+
+    <!-- Link de retorno -->
+    <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-en">← Back to all projects</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
   </main>
 
   <footer class="text-center p-6 text-gray-500 text-sm">
