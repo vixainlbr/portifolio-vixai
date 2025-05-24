@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto: Gerador de Códigos de Barras | VIXAI</title>
+  <title>Gerador de Código de Barras e QR Code | VIXAI</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.11.5/JsBarcode.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     function toggleLanguage() {
       const pt = document.querySelectorAll('.lang-pt');
@@ -13,6 +14,7 @@
       pt.forEach(el => el.classList.toggle('hidden'));
       en.forEach(el => el.classList.toggle('hidden'));
     }
+
     function generateBarcode() {
       let code = document.getElementById("barcodeInput").value;
       if (code.trim() === "") {
@@ -27,6 +29,21 @@
         height: 50,
       });
       setTimeout(() => window.print(), 500);
+    }
+
+    function generateQRCode() {
+      const input = document.getElementById("qrInput").value;
+      const container = document.getElementById("qrCode");
+      container.innerHTML = ""; // Limpa o QR anterior
+      if (input.trim() === "") {
+        alert("Enter valid content");
+        return;
+      }
+      new QRCode(container, {
+        text: input,
+        width: 180,
+        height: 180,
+      });
     }
   </script>
   <style>
@@ -65,63 +82,34 @@
     </nav>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6">
-    <!-- Gerador Funcional -->
-    <section class="bg-white p-6 rounded shadow mb-10">
-      <h2 class="text-2xl font-bold mb-4 lang-en">Try the Barcode Generator</h2>
-      <h2 class="text-2xl font-bold mb-4 lang-pt hidden">Teste o Gerador de Código de Barras</h2>
-      <input type="text" id="barcodeInput" placeholder="Enter your code here / Digite seu código" class="w-full p-2 border rounded mb-4">
-      <button onclick="generateBarcode()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Generate</button>
-      <div id="printArea" class="mt-6 flex justify-center">
-        <svg id="barcode"></svg>
-      </div>
-    </section>
+  <main class="max-w-6xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 lang-en">Barcode and QR Code Generator</h1>
+    <h1 class="text-3xl font-bold mb-6 lang-pt hidden">Gerador de Código de Barras e QR Code</h1>
 
-    <h1 class="text-3xl font-bold mb-2 lang-en">Barcode Generator Web App</h1>
-    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Gerador de Códigos de Barras</h1>
+    <div class="flex flex-col md:flex-row gap-6">
+      <!-- Gerador de Código de Barras -->
+      <section class="bg-white p-6 rounded shadow w-full md:w-1/2">
+        <h2 class="text-xl font-bold mb-4 lang-en">Barcode Generator</h2>
+        <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de Código de Barras</h2>
+        <input type="text" id="barcodeInput" placeholder="Enter your code here / Digite seu código" class="w-full p-2 border rounded mb-4">
+        <button onclick="generateBarcode()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Generate</button>
+        <div id="printArea" class="mt-6 flex justify-center">
+          <svg id="barcode"></svg>
+        </div>
+      </section>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
-      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
-      <p class="text-gray-700 lang-en">Web-based tool for generating CODE128 barcodes. Supports manual input, real-time rendering, and direct printing from the browser.</p>
-      <p class="text-gray-700 lang-pt hidden">Ferramenta online para geração rápida de códigos de barras no formato CODE128. Permite entrada de código manual, visualização instantânea do código e opção de impressão.</p>
-    </section>
+      <!-- Gerador de QR Code -->
+      <section class="bg-white p-6 rounded shadow w-full md:w-1/2">
+        <h2 class="text-xl font-bold mb-4 lang-en">QR Code Generator</h2>
+        <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de QR Code</h2>
+        <input type="text" id="qrInput" placeholder="Enter your content / Digite seu conteúdo" class="w-full p-2 border rounded mb-4">
+        <button onclick="generateQRCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate</button>
+        <div id="qrCode" class="mt-6 flex justify-center"></div>
+      </section>
+    </div>
 
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2 lang-en">Technologies Used</h2>
-      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
-      <ul class="list-disc list-inside text-gray-700">
-        <li>HTML, CSS, JavaScript</li>
-        <li>JsBarcode</li>
-        <li>Browser print functionality</li>
-      </ul>
-    </section>
-
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
-      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
-      <p class="text-gray-700 lang-en">
-        Generating barcode labels is often tied to expensive software, complex ERPs, or limited desktop tools. For operators who need speed and flexibility — whether in logistics, inventory, or retail — this tool delivers a lightweight, browser-based solution.  
-        It enables real-time barcode rendering (CODE128), fully client-side, with instant printing — no installation, no friction.  
-        In just seconds, any workstation becomes a label printer.
-      </p>
-      <p class="text-gray-700 lang-pt hidden">
-        A geração de etiquetas de código de barras geralmente depende de softwares caros, ERPs complexos ou ferramentas limitadas ao desktop. Para operadores que precisam de agilidade e flexibilidade — seja na logística, estoque ou varejo — esta solução oferece uma alternativa leve e acessível via navegador.  
-        A renderização do código (CODE128) é feita em tempo real, diretamente no navegador, com impressão instantânea — sem instalações, sem atrito.  
-        Em poucos segundos, qualquer computador vira uma impressora de etiquetas.
-      </p>
-    </section>
-
-    <section class="mb-10">
-      <h2 class="text-xl font-semibold mb-2 lang-en">Repository</h2>
-      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Repositório</h2>
-      <a href="https://github.com/vixainlbr/portifolio-vixai/tree/main/projetos/barcode-generator.html" class="text-blue-600 hover:underline" target="_blank">
-        github.com/vixainlbr/portifolio-vixai/tree/main/projetos/barcode-generator.html
-      </a>
-    </section>
-
-    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-en">← Back to all projects</a>
-    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-en">← Back to all projects</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
   </main>
 
   <footer class="text-center p-6 text-gray-500 text-sm">
