@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto: Bot de Extração de Dados | VIXAI</title>
+  <title>Projeto: Agendador Online | VIXAI</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
     function toggleLanguage() {
@@ -22,45 +22,61 @@
     </a>
     <nav class="space-x-4">
       <button onclick="toggleLanguage()" class="text-sm bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded">PT / EN</button>
-      <a href="/" class="text-gray-700 hover:underline">Home</a>
     </nav>
   </header>
 
   <main class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-2 lang-en">Data Extraction Bot with Dashboard</h1>
-    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Bot de Extração de Dados com Dashboard</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-en">Online Appointment Scheduler</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Sistema de Agendamento Online</h1>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
-      <p class="text-gray-700 lang-en">An automated Python-based system designed to extract key data from public websites, process it in real-time, and display it visually on a dynamic dashboard. The platform empowers companies to monitor changes, trends, and opportunities without manual research.</p>
-      <p class="text-gray-700 lang-pt hidden">Sistema automatizado em Python desenvolvido para extrair dados essenciais de sites públicos, processá-los em tempo real e apresentá-los de forma visual em um dashboard dinâmico. A plataforma permite que empresas monitorem mudanças, tendências e oportunidades sem precisar de pesquisa manual.</p>
+      <p class="text-gray-700 lang-en">
+        This system empowers service professionals with a self-managed online booking platform.
+        Clients can view available time slots and book directly, while providers manage their agenda, cancellations and confirmations in real-time.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        Este sistema permite que prestadores de serviço tenham uma plataforma de agendamento online autogerenciada.
+        Os clientes visualizam horários disponíveis e reservam diretamente, enquanto o profissional gerencia sua agenda em tempo real.
+      </p>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Technologies Used</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
       <ul class="list-disc list-inside text-gray-700">
-        <li>Python</li>
-        <li>BeautifulSoup + Selenium (web scraping)</li>
-        <li>Streamlit (visualização interativa)</li>
-        <li>Pandas (tratamento de dados)</li>
-        <li>Agendadores (agendamento automático de coleta)</li>
+        <li>FastAPI (backend)</li>
+        <li>PostgreSQL (database)</li>
+        <li>React + Tailwind CSS (frontend)</li>
+        <li>JWT Authentication</li>
+        <li>Real-time scheduling with availability logic</li>
+        <li>Email or WhatsApp integration (via APIs)</li>
       </ul>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
-      <p class="text-gray-700 lang-en">Manually checking websites for price updates, new products, or market trends is inefficient. This bot automates the entire monitoring pipeline—freeing teams from repetitive tasks and providing actionable insights through a live dashboard.</p>
-      <p class="text-gray-700 lang-pt hidden">Verificar manualmente sites em busca de atualizações de preços, novos produtos ou tendências de mercado é ineficiente. Este bot automatiza todo o processo de monitoramento—liberando equipes de tarefas repetitivas e fornecendo insights acionáveis por meio de um dashboard ao vivo.</p>
+      <p class="text-gray-700 lang-en">
+        Manual booking processes lead to missed opportunities, double bookings, and wasted time. This system automates scheduling, improves customer experience, and reduces administrative overhead with smart logic and customizable slots.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        Processos de agendamento manuais causam perda de oportunidades, conflitos de horários e retrabalho. Este sistema automatiza o agendamento, melhora a experiência do cliente e reduz o trabalho administrativo com lógica inteligente e horários personalizáveis.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Application Flow</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Fluxo da Aplicação</h2>
+      <img src="/screenshots/appointment-system-flow.png" alt="Appointment System Flow" class="rounded shadow w-full max-w-xl">
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Repository</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Repositório</h2>
-      <a href="https://github.com/vixainlbr/portifolio-vixai/tree/main/projetos/scraping-dashboard.html" class="text-blue-600 hover:underline" target="_blank">
-        github.com/vixainlbr/portifolio-vixai/tree/main/projetos/scraping-dashboard.html
+      <a href="https://github.com/vixainlbr/portifolio-vixai/tree/main/projetos/appointment-scheduler.html" class="text-blue-600 hover:underline" target="_blank">
+        github.com/vixainlbr/portifolio-vixai/tree/main/projetos/appointment-scheduler.html
       </a>
     </section>
 
