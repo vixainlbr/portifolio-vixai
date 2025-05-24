@@ -65,15 +65,6 @@
         align-items: center;
         justify-content: center;
       }
-      .label-border {
-        border: 2px dashed #000;
-        padding: 20px;
-        text-align: center;
-      }
-      .label-logo {
-        width: 80px;
-        margin: 0 auto 10px;
-      }
       @page {
         margin: 0;
       }
@@ -104,10 +95,7 @@
         <input type="text" id="barcodeInput" placeholder="Enter your code here / Digite seu código" class="w-full p-2 border rounded mb-4">
         <button onclick="generateBarcode()" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Generate</button>
         <div id="printArea" class="mt-6 flex justify-center">
-          <div class="label-border">
-            <img src="/logo.png" alt="Logo" class="label-logo">
-            <svg id="barcode"></svg>
-          </div>
+          <svg id="barcode"></svg>
         </div>
       </section>
 
@@ -118,10 +106,7 @@
         <input type="text" id="qrInput" placeholder="Enter your content / Digite seu conteúdo" class="w-full p-2 border rounded mb-4">
         <button onclick="generateQRCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate</button>
         <div id="qrPrintArea" class="mt-6 flex justify-center">
-          <div class="label-border">
-            <img src="/logo.png" alt="Logo" class="label-logo">
-            <div id="qrCode"></div>
-          </div>
+          <div id="qrCode"></div>
         </div>
       </section>
     </div>
