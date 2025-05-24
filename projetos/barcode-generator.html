@@ -52,10 +52,10 @@
       body * {
         visibility: hidden;
       }
-      #printArea, #qrCode, #printArea * {
+      #printArea, #qrPrintArea, #printArea *, #qrPrintArea * {
         visibility: visible;
       }
-      #printArea, #qrCode {
+      #printArea, #qrPrintArea {
         position: absolute;
         top: 0;
         left: 0;
@@ -105,7 +105,9 @@
         <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de QR Code</h2>
         <input type="text" id="qrInput" placeholder="Enter your content / Digite seu conteúdo" class="w-full p-2 border rounded mb-4">
         <button onclick="generateQRCode()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Generate</button>
-        <div id="qrCode" class="mt-6 flex justify-center"></div>
+        <div id="qrPrintArea" class="mt-6 flex justify-center">
+          <div id="qrCode"></div>
+        </div>
       </section>
     </div>
 
