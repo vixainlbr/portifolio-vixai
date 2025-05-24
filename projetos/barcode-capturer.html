@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto: Capturador de Códigos de Barras | VIXAI</title>
+  <title>Projeto: VIXAI FlowTrack | Monitor de Produtividade</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
     function toggleLanguage() {
@@ -27,14 +27,14 @@
   </header>
 
   <main class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-2 lang-en">Barcode Capturer Script</h1>
-    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Script Capturador de Códigos de Barras</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-en">VIXAI FlowTrack – Real-Time Productivity Monitor</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">VIXAI FlowTrack – Monitor de Produtividade em Tempo Real</h1>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
-      <p class="text-gray-700 lang-en">A Python-based script that captures barcode input via keyboard scanners and logs the data into a CSV file with timestamps.</p>
-      <p class="text-gray-700 lang-pt hidden">Um script em Python que captura entradas de códigos de barras via leitores conectados como teclado e salva os dados em um arquivo CSV com data e hora.</p>
+      <p class="text-gray-700 lang-en">A Python-powered desktop tool designed to monitor and optimize barcode reading productivity in operational environments. Using visual feedback and real-time metrics, it helps track throughput and operator performance.</p>
+      <p class="text-gray-700 lang-pt hidden">Ferramenta desktop em Python projetada para monitorar e otimizar a produtividade na leitura de códigos de barras em ambientes operacionais. Usa feedback visual e métricas em tempo real para acompanhar a performance dos operadores.</p>
     </section>
 
     <section class="mb-10">
@@ -42,24 +42,41 @@
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
       <ul class="list-disc list-inside text-gray-700">
         <li>Python</li>
-        <li>keyboard</li>
+        <li>keyboard (event-driven capture)</li>
         <li>pandas</li>
+        <li>tkinter (GUI)</li>
         <li>datetime, os</li>
-        <li>CSV file handling</li>
+        <li>SQLite or PostgreSQL</li>
       </ul>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
-      <p class="text-gray-700 lang-en">Operators often need to quickly register scanned codes from packages or assets. This script automates logging of each scanned value with its timestamp, avoiding the need for manual input.</p>
-      <p class="text-gray-700 lang-pt hidden">Operadores muitas vezes precisam registrar rapidamente códigos escaneados de pacotes ou ativos. Este script automatiza o registro de cada valor com data e hora, evitando entradas manuais.</p>
+      <p class="text-gray-700 lang-en">Operational managers lack real-time visibility into barcode scanning speed. FlowTrack automatically calculates hourly productivity, shows live visual feedback with emojis, and stores data for auditing. It boosts operator awareness and identifies bottlenecks instantly.</p>
+      <p class="text-gray-700 lang-pt hidden">Gerentes operacionais muitas vezes não têm visibilidade em tempo real sobre a velocidade de leitura de códigos. O FlowTrack calcula automaticamente a produtividade por hora, exibe feedback visual em tempo real com emojis e armazena os dados para auditoria. Isso aumenta a consciência do operador e permite identificar gargalos de forma instantânea.</p>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Process Flow Diagram</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Fluxograma do Processo</h2>
-      <img src="/screenshots/barcode-capturer-flow.png" alt="Diagrama do processo de captura de código" class="rounded shadow w-full max-w-xl">
+      <img src="/screenshots/flowtrack-process-diagram.png" alt="Fluxograma do sistema FlowTrack" class="rounded shadow w-full max-w-xl">
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Key Benefits</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Principais Benefícios</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li class="lang-en">Real-time visual performance feedback (emoji system)</li>
+        <li class="lang-en">Operator engagement increases productivity naturally</li>
+        <li class="lang-en">Lightweight and offline – no cloud dependency</li>
+        <li class="lang-en">Plug-and-play with barcode scanners acting as keyboards</li>
+
+        <li class="lang-pt hidden">Feedback visual de performance em tempo real (sistema de emojis)</li>
+        <li class="lang-pt hidden">Maior engajamento do operador eleva a produtividade naturalmente</li>
+        <li class="lang-pt hidden">Leve e offline – sem dependência de nuvem</li>
+        <li class="lang-pt hidden">Plug-and-play com leitores de código que atuam como teclado</li>
+      </ul>
     </section>
 
     <section class="mb-10">
@@ -70,8 +87,8 @@
       </a>
     </section>
 
-    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-en">← Back to all projects</a>
-    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-en">&larr; Back to all projects</a>
+    <a href="https://portifolio-vixai.vercel.app/" class="text-blue-600 hover:underline lang-pt hidden">&larr; Voltar para todos os projetos</a>
   </main>
 
   <footer class="text-center p-6 text-gray-500 text-sm">
