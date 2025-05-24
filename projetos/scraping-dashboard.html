@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projeto: Bot de Extração de Dados | VIXAI</title>
+  <title>Projeto: Data Scraping Dashboard | VIXAI</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
     function toggleLanguage() {
@@ -22,38 +22,52 @@
     </a>
     <nav class="space-x-4">
       <button onclick="toggleLanguage()" class="text-sm bg-gray-200 hover:bg-gray-300 px-4 py-1 rounded">PT / EN</button>
-      <a href="https://portifolio-vixai.vercel.app/" class="text-gray-700 hover:underline">Home</a>
+      <a href="/" class="text-gray-700 hover:underline">Home</a>
     </nav>
   </header>
 
   <main class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-2 lang-en">Data Scraping Bot with Dashboard</h1>
-    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Bot de Extração de Dados com Dashboard</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-en">Public Data Scraping Dashboard</h1>
+    <h1 class="text-3xl font-bold mb-2 lang-pt hidden">Dashboard de Extração de Dados Públicos</h1>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Overview</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
-      <p class="text-gray-700 lang-en">System that scrapes public data from websites and presents it in an interactive dashboard. The tool is ideal for market monitoring, competitive analysis, and public data tracking—eliminating the need for manual updates and centralizing insights.</p>
-      <p class="text-gray-700 lang-pt hidden">Sistema que coleta dados públicos de sites e os apresenta em um dashboard interativo. A ferramenta é ideal para monitoramento de mercado, análise da concorrência e acompanhamento de dados públicos—eliminando atualizações manuais e centralizando os insights.</p>
+      <p class="text-gray-700 lang-en">
+        System that scrapes public data from selected websites, processes the information, and displays results in an interactive, user-friendly dashboard. Ideal for market tracking, competitor monitoring, or regulatory updates.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        Sistema que extrai dados públicos de sites específicos, processa as informações e exibe os resultados em um painel interativo e intuitivo. Ideal para monitoramento de mercado, concorrência ou atualizações regulatórias.
+      </p>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Technologies Used</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
       <ul class="list-disc list-inside text-gray-700">
-        <li>Python</li>
-        <li>BeautifulSoup + Selenium (web scraping)</li>
-        <li>Streamlit (interactive dashboard)</li>
-        <li>Pandas (data cleaning and processing)</li>
-        <li>Agendadores e scripts automatizados</li>
+        <li>Python (BeautifulSoup / Selenium)</li>
+        <li>Pandas para tratamento de dados</li>
+        <li>Streamlit para criação de dashboard</li>
+        <li>Requests / APIs públicas</li>
+        <li>Deploy via Streamlit Cloud</li>
       </ul>
     </section>
 
     <section class="mb-10">
       <h2 class="text-xl font-semibold mb-2 lang-en">Problem Solved</h2>
       <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
-      <p class="text-gray-700 lang-en">Manually checking sites for updates is inefficient and error-prone. This bot automates the extraction process, transforming raw HTML into useful insights presented in real time.</p>
-      <p class="text-gray-700 lang-pt hidden">Verificar sites manualmente é ineficiente e propenso a erros. Este bot automatiza a extração, transformando HTML bruto em insights úteis apresentados em tempo real.</p>
+      <p class="text-gray-700 lang-en">
+        Manual tracking of market or regulatory data is time-consuming and prone to errors. This solution automates collection and visualization, giving teams real-time access to structured public data without coding.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        O monitoramento manual de dados de mercado ou regulatórios consome tempo e é sujeito a falhas. Esta solução automatiza a coleta e visualização, oferecendo acesso em tempo real a dados públicos estruturados sem necessidade de programação.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-xl font-semibold mb-2 lang-en">Process Flow</h2>
+      <h2 class="text-xl font-semibold mb-2 lang-pt hidden">Fluxo do Processo</h2>
+      <img src="/screenshots/data-scraping-flow.png" alt="Data scraping flow diagram" class="rounded shadow w-full max-w-xl">
     </section>
 
     <section class="mb-10">
