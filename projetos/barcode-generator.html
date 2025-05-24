@@ -34,16 +34,17 @@
     function generateQRCode() {
       const input = document.getElementById("qrInput").value;
       const container = document.getElementById("qrCode");
-      container.innerHTML = ""; // Limpa o QR anterior
+      container.innerHTML = "";
       if (input.trim() === "") {
         alert("Enter valid content");
         return;
       }
-      new QRCode(container, {
+      new QRCode("qrCode", {
         text: input,
         width: 180,
-        height: 180,
+        height: 180
       });
+      setTimeout(() => window.print(), 500);
     }
   </script>
   <style>
@@ -51,10 +52,10 @@
       body * {
         visibility: hidden;
       }
-      #printArea, #printArea * {
+      #printArea, #qrCode, #printArea * {
         visibility: visible;
       }
-      #printArea {
+      #printArea, #qrCode {
         position: absolute;
         top: 0;
         left: 0;
@@ -87,7 +88,7 @@
     <h1 class="text-3xl font-bold mb-6 lang-pt hidden">Gerador de Código de Barras e QR Code</h1>
 
     <div class="flex flex-col md:flex-row gap-6">
-      <!-- Gerador de Código de Barras -->
+      <!-- Barcode -->
       <section class="bg-white p-6 rounded shadow w-full md:w-1/2">
         <h2 class="text-xl font-bold mb-4 lang-en">Barcode Generator</h2>
         <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de Código de Barras</h2>
@@ -98,7 +99,7 @@
         </div>
       </section>
 
-      <!-- Gerador de QR Code -->
+      <!-- QR Code -->
       <section class="bg-white p-6 rounded shadow w-full md:w-1/2">
         <h2 class="text-xl font-bold mb-4 lang-en">QR Code Generator</h2>
         <h2 class="text-xl font-bold mb-4 lang-pt hidden">Gerador de QR Code</h2>
@@ -108,6 +109,44 @@
       </section>
     </div>
 
+    <!-- Overview -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Overview</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Visão Geral</h2>
+      <p class="text-gray-700 lang-en">
+        Lightweight web tool for generating both CODE128 barcodes and QR Codes. Built to work directly from the browser, it supports real-time rendering, direct printing, and zero setup — ideal for logistics, inventory, retail, and office use.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        Ferramenta web leve para gerar códigos de barras CODE128 e QR Codes. Funciona diretamente no navegador, com renderização instantânea, impressão direta e sem necessidade de instalação — ideal para logística, estoque, varejo e uso interno.
+      </p>
+    </section>
+
+    <!-- Technologies -->
+    <section class="mt-8">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Technologies Used</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Tecnologias Utilizadas</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>HTML, CSS, JavaScript</li>
+        <li>JsBarcode</li>
+        <li>QRCode.js</li>
+        <li>TailwindCSS</li>
+        <li>Print via browser</li>
+      </ul>
+    </section>
+
+    <!-- Problem Solved -->
+    <section class="mt-8 mb-10">
+      <h2 class="text-2xl font-semibold mb-2 lang-en">Problem Solved</h2>
+      <h2 class="text-2xl font-semibold mb-2 lang-pt hidden">Problema Resolvido</h2>
+      <p class="text-gray-700 lang-en">
+        Generating labels usually requires specialized software or ERP integration. This tool simplifies everything — allowing anyone to produce printable barcodes or QR codes in seconds, without technical overhead. Save time, reduce costs, and streamline your daily operations.
+      </p>
+      <p class="text-gray-700 lang-pt hidden">
+        A geração de etiquetas normalmente exige softwares específicos ou integração com ERPs. Esta ferramenta simplifica tudo — permitindo que qualquer pessoa crie códigos de barras ou QR Codes imprimíveis em segundos, sem complexidade técnica. Economize tempo, reduza custos e agilize sua operação.
+      </p>
+    </section>
+
+    <!-- Link de retorno -->
     <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-en">← Back to all projects</a>
     <a href="https://portifolio-vixai.vercel.app/" class="block mt-10 text-blue-600 hover:underline lang-pt hidden">← Voltar para todos os projetos</a>
   </main>
