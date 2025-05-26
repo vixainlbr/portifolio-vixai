@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 export default function ChatWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Hello, how can I help you // Olá! Em que posso ajudar?' }
+    { role: 'assistant', content: 'Hello! How can I help you // Olá! Em que posso ajudar?' }
   ]);
   const [input, setInput] = useState('');
   const endRef = useRef();
