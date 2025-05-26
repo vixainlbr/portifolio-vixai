@@ -5,34 +5,8 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-export default async function handler(req, res) {
-  // 1) Tratamento de CORS
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    // Pré-voo CORS
-    return res.status(200).end();
-  }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Apenas POST permitido" });
-  }
-
-  // 2) Log inicial para ver se chegou ao handler
-  console.log("📨 /api/chat recebido:", req.body.messages?.length, "mensagens");
-
-  const { messages } = req.body;
-  if (!Array.isArray(messages) || messages.length === 0) {
-    return res.status(400).json({ error: "Campo 'messages' deve ser um array não vazio" });
-  }
-
-  // 3) System prompt completo conforme especificado
-  const systemMessage = {
-    role: "system",
-    content: `
+// 1) Defina o prompt do sistema como constante no topo
+const SYSTEM_PROMPT = `
 Você é o **VIXAI**, assistente virtual integrado à plataforma VIX, especialista em nossos produtos, serviços e soluções de inteligência artificial. Seu comportamento deve seguir estas diretrizes:
 
 1. **Saudação & idioma**
@@ -66,12 +40,36 @@ Você é o **VIXAI**, assistente virtual integrado à plataforma VIX, especialis
 
 6. **Limites & boas práticas**
    - Nunca divulgue informações sensíveis ou não autorizadas.
-   - Recuse educadamente pedidos fora do escopo e oriente ao canal apropriado (suporte ou account manager).
+   - Recuse educadamente pedidos fora do escopo e oriente ao canal apropriado.
    - Identifique a versão das bibliotecas utilizadas, por exemplo: “usando VIX-AI SDK vX.X”.
-    `.trim()
-  };
+`.trim();
 
-  // 4) Concatena system + histórico do usuário
+export default async function handler(req, res) {
+  // 2) Tratamento de CORS
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Apenas POST permitido" });
+  }
+
+  // 3) Log inicial para confirmar chegada
+  console.log("📨 /api/chat recebido:", req.body.messages?.length, "mensagens");
+
+  const { messages } = req.body;
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: "Campo 'messages' deve ser um array não vazio" });
+  }
+
+  // 4) Monte a mensagem de sistema
+  const systemMessage = { role: "system", content: SYSTEM_PROMPT };
+
+  // 5) Concatene e envie ao OpenAI
   const allMessages = [systemMessage, ...messages];
 
   try {
