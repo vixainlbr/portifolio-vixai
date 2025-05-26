@@ -1,80 +1,98 @@
-import OpenAI from "openai";
+// components/ChatWidget.js
+import { useState, useRef, useEffect } from 'react';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+export default function ChatWidget() {
+  const [open, setOpen] = useState(false);
+  const [messages, setMessages] = useState([
+    { role: 'assistant', content: 'Olá! Em que posso ajudar?' }
+  ]);
+  const [input, setInput] = useState('');
+  const endRef = useRef();
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Apenas POST permitido" });
+  // Scroll automático à última mensagem
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
+  async function sendMessage() {
+    if (!input.trim()) return;
+    const userMsg = { role: 'user', content: input.trim() };
+
+    // 1) Monte o novo array antes de setar o state
+    const newMessages = [...messages, userMsg];
+    setMessages(newMessages);
+    setInput('');
+
+    try {
+      const resp = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: newMessages })
+      });
+
+      // 2) Verifique resp.ok e, se falso, logue detalhes
+      if (!resp.ok) {
+        const errorText = await resp.text();
+        console.error('Chat API error', resp.status, errorText);
+        throw new Error(`Status ${resp.status}`);
+      }
+
+      const data = await resp.json();
+      const botMsg = {
+        role: 'assistant',
+        content: data.reply || 'Desculpe, houve um erro.'
+      };
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (err) {
+      console.error('Network or API error:', err);
+      setMessages((prev) => [
+        ...prev,
+        { role: 'assistant', content: 'Erro de rede, tente novamente.' }
+      ]);
+    }
   }
 
-  const { messages } = req.body;
-  if (!Array.isArray(messages) || messages.length === 0) {
-    return res.status(400).json({ error: "Campo 'messages' deve ser um array não vazio" });
-  }
-
-  // 1) System prompt completo
-  const systemMessage = {
-    role: "system",
-    content: `
-Você é o **VIXAI**, assistente virtual integrado à plataforma VIX, especialista em nossos produtos, serviços e soluções de inteligência artificial. Seu comportamento deve seguir estas diretrizes:
-
-1. **Saudação & idioma**
-   - Ao iniciar qualquer interação, sempre cumprimente em Português **e** Inglês:
-     > “Olá! Hello!”
-   - Detecte automaticamente a língua do usuário e responda **na mesma língua**.
-   - Se a mensagem vier em ambas, preserve o padrão bilíngue.
-
-2. **Objetivo técnico**
-   - Priorize **exatidão** e **robustez**: fundamente-se em fontes confiáveis ou na documentação interna.
-   - Valide entradas ambíguas com perguntas de follow-up.
-   - Em erros/exceções, ofereça alternativas e links para docs (ex.: [docs.vix.ai/api/errors](https://docs.vix.ai/api/errors)).
-
-3. **Objetivo de marketing**
-   - **Tom**: amigável, confiante e profissional.
-   - Inclua CTAs sutis: “experimente nosso demo gratuito”, “marque uma call com nosso time”.
-   - Use termos-chave de SEO (“inteligência artificial”, “automação”, “analytics avançado”) de forma natural.
-
-4. **Formato & estrutura**
-   - Sempre em **tópicos** (numerados ou marcadores).
-   - Quando possível, limite a **200 palavras**.
-   - Siga este esqueleto:
-     1. **Resumo** (1–2 frases).
-     2. **Detalhamento**.
-     3. **Exemplos práticos** (código, fluxogramas, links).
-     4. **Próximos passos** ou CTA.
-
-5. **Estilo de código**
-   - Para Python, siga PEP8; destaque sintaxe em Markdown e comente trechos críticos.
-   - Use links internos `[texto](URL)` para docs VIX e referencias externas.
-
-6. **Limites & boas práticas**
-   - Nunca divulgue dados sensíveis.
-   - Recuse pedidos fora de escopo e oriente ao canal apropriado.
-   - Identifique versões das bibliotecas (“usando VIX-AI SDK vX.X”).
-    `.trim()
-  };
-
-  // 2) Monta o array de mensagens
-  const allMessages = [systemMessage, ...messages];
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4o-mini",
-      messages: allMessages,
-      max_tokens: 500
-    });
-
-    const replyContent = response.choices?.[0]?.message?.content || "";
-    return res.status(200).json({ reply: replyContent });
-
-  } catch (err) {
-    console.error("OpenAI error:", err);
-    const status = err.status === 429 ? 429 : 500;
-    const errorMsg = err.status === 429
-      ? "Quota excedida. Tente novamente mais tarde."
-      : "Erro na API da OpenAI.";
-    return res.status(status).json({ error: errorMsg });
-  }
+  return (
+    <div className="fixed bottom-6 right-6 flex flex-col items-end">
+      {open && (
+        <div className="w-80 h-96 bg-white shadow-lg rounded-lg flex flex-col overflow-hidden">
+          <div className="p-2 bg-blue-600 text-white font-bold">Chat VIXAI</div>
+          <div className="flex-1 p-2 overflow-y-auto space-y-2">
+            {messages.map((m, i) => (
+              <div
+                key={i}
+                className={`p-2 rounded ${
+                  m.role === 'user' ? 'bg-blue-100 self-end' : 'bg-gray-100 self-start'
+                }`}
+              >
+                {m.content}
+              </div>
+            ))}
+            <div ref={endRef} />
+          </div>
+          <div className="p-2 border-t flex">
+            <input
+              className="flex-1 border rounded px-2 py-1 mr-2"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            />
+            <button
+              className="bg-blue-600 text-white px-3 py-1 rounded"
+              onClick={sendMessage}
+            >
+              Enviar
+            </button>
+          </div>
+        </div>
+      )}
+      <button
+        onClick={() => setOpen(!open)}
+        className="bg-blue-600 text-white p-4 rounded-full shadow-xl hover:bg-blue-700"
+        aria-label="Abrir chat"
+      >
+        💬
+      </button>
+    </div>
+  );
 }
