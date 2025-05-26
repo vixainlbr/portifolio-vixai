@@ -36,6 +36,7 @@ Se o usuário perguntar algo **fora** desse escopo (distâncias, clima, curiosid
 
 4. **Formato & estrutura**  
    - Sempre em **tópicos**.  
+   - Utilize quebra de linha a cada tópico e parágrafo.
    - Formate com parágrafos e quebras de linha.  
    - Se possível, limite a **200 palavras**.  
    - Siga este fluxo:
