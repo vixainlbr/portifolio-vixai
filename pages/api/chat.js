@@ -1,98 +1,59 @@
-// components/ChatWidget.js
-import { useState, useRef, useEffect } from 'react';
+// pages/api/chat.js  (ou app/api/chat/route.js, adaptando exports se for App Router)
+import OpenAI from "openai";
 
-export default function ChatWidget() {
-  const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { role: 'assistant', content: 'Olá! Em que posso ajudar?' }
-  ]);
-  const [input, setInput] = useState('');
-  const endRef = useRef();
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
-  // Scroll automático à última mensagem
-  useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages]);
+export default async function handler(req, res) {
+  // 1) Tratamento de CORS
+  res.setHeader("Access-Control-Allow-Credentials", "true");
+  res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-  async function sendMessage() {
-    if (!input.trim()) return;
-    const userMsg = { role: 'user', content: input.trim() };
-
-    // 1) Monte o novo array antes de setar o state
-    const newMessages = [...messages, userMsg];
-    setMessages(newMessages);
-    setInput('');
-
-    try {
-      const resp = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages })
-      });
-
-      // 2) Verifique resp.ok e, se falso, logue detalhes
-      if (!resp.ok) {
-        const errorText = await resp.text();
-        console.error('Chat API error', resp.status, errorText);
-        throw new Error(`Status ${resp.status}`);
-      }
-
-      const data = await resp.json();
-      const botMsg = {
-        role: 'assistant',
-        content: data.reply || 'Desculpe, houve um erro.'
-      };
-      setMessages((prev) => [...prev, botMsg]);
-    } catch (err) {
-      console.error('Network or API error:', err);
-      setMessages((prev) => [
-        ...prev,
-        { role: 'assistant', content: 'Erro de rede, tente novamente.' }
-      ]);
-    }
+  if (req.method === "OPTIONS") {
+    // Pré-voo CORS
+    return res.status(200).end();
   }
 
-  return (
-    <div className="fixed bottom-6 right-6 flex flex-col items-end">
-      {open && (
-        <div className="w-80 h-96 bg-white shadow-lg rounded-lg flex flex-col overflow-hidden">
-          <div className="p-2 bg-blue-600 text-white font-bold">Chat VIXAI</div>
-          <div className="flex-1 p-2 overflow-y-auto space-y-2">
-            {messages.map((m, i) => (
-              <div
-                key={i}
-                className={`p-2 rounded ${
-                  m.role === 'user' ? 'bg-blue-100 self-end' : 'bg-gray-100 self-start'
-                }`}
-              >
-                {m.content}
-              </div>
-            ))}
-            <div ref={endRef} />
-          </div>
-          <div className="p-2 border-t flex">
-            <input
-              className="flex-1 border rounded px-2 py-1 mr-2"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-            />
-            <button
-              className="bg-blue-600 text-white px-3 py-1 rounded"
-              onClick={sendMessage}
-            >
-              Enviar
-            </button>
-          </div>
-        </div>
-      )}
-      <button
-        onClick={() => setOpen(!open)}
-        className="bg-blue-600 text-white p-4 rounded-full shadow-xl hover:bg-blue-700"
-        aria-label="Abrir chat"
-      >
-        💬
-      </button>
-    </div>
-  );
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Apenas POST permitido" });
+  }
+
+  // 2) Log inicial para ver se chegou ao handler
+  console.log("📨 /api/chat recebido:", req.body.messages?.length, "mensagens");
+
+  const { messages } = req.body;
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: "Campo 'messages' deve ser um array não vazio" });
+  }
+
+  const systemMessage = {
+    role: "system",
+    content: `
+Você é o **VIXAI**, assistente virtual integrado à plataforma VIX...
+(seu prompt completo aqui)
+    `.trim()
+  };
+
+  const allMessages = [systemMessage, ...messages];
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: allMessages,
+      max_tokens: 500
+    });
+    const replyContent = response.choices?.[0]?.message?.content || "";
+    return res.status(200).json({ reply: replyContent });
+
+  } catch (err) {
+    console.error("❌ OpenAI error:", err);
+    const status = err.status === 429 ? 429 : 500;
+    const errorMsg = err.status === 429
+      ? "Quota excedida. Tente novamente mais tarde."
+      : "Erro na API da OpenAI.";
+    return res.status(status).json({ error: errorMsg });
+  }
 }
