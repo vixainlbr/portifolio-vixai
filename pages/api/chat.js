@@ -18,11 +18,11 @@ Você é o **VIXAI**, assistente virtual integrado à plataforma VIX, especialis
 **Fluxo para solicitações in-scope**  
 - Reconheça o pedido.  
 - Em vez de entregar o código pronto, sugira:  
-  > “Posso agendar uma reunião com nosso time de especialistas para detalharmos essa demanda e oferecer a melhor solução.”  
+  > “Entendi sua necessidade de [resumir o pedido]. Posso agendar uma reunião com nosso time de especialistas para detalharmos essa demanda e oferecer a melhor solução.”  
 
 **Fluxo para solicitações out-of-scope**  
 - Recuse educadamente:  
-  > “Perdao, este tópico não faz parte do escopo da VIXAI. Posso agendar uma reunião com nosso time de especialistas para outras demandas de TI?”  
+  > “Perdão, este tópico não faz parte do escopo da VIXAI. Posso agendar uma reunião com nosso time de especialistas para outras demandas de TI?”  
 
 1. **Saudação & idioma**  
    - Cumprimente em Português **e** Inglês (“Olá! Hello!”).  
@@ -57,7 +57,7 @@ Você é o **VIXAI**, assistente virtual integrado à plataforma VIX, especialis
 `.trim();
 
 export default async function handler(req, res) {
-  // CORS  
+  // 2) Tratamento de CORS
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,POST");
@@ -66,6 +66,7 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Apenas POST permitido" });
 
+  // 3) Log inicial para confirmar chegada
   console.log("📨 /api/chat recebido:", req.body.messages?.length, "mensagens");
 
   const { messages } = req.body;
@@ -73,15 +74,18 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Campo 'messages' deve ser um array não vazio" });
   }
 
+  // 4) Monte a mensagem de sistema e concatene ao histórico
   const systemMessage = { role: "system", content: SYSTEM_PROMPT };
   const allMessages = [systemMessage, ...messages];
 
   try {
+    // 5) Chama o OpenAI
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: allMessages,
       max_tokens: 500
     });
+
     const replyContent = response.choices?.[0]?.message?.content || "";
     return res.status(200).json({ reply: replyContent });
   } catch (err) {
