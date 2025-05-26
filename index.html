@@ -3,199 +3,298 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio VIXAI</title>
+  <title>VIXAI - Automação Inteligente e IA Sob Medida</title>
+
+  <!-- SEO & Metadata -->
+  <meta name="description" content="Transforme sua empresa com automação inteligente e IA: economize até 30% do seu tempo e reduza custos em até 20%. Orçamento grátis e demonstração disponível." />
+  <meta property="og:title" content="VIXAI - Automação Inteligente e IA Sob Medida" />
+  <meta property="og:description" content="Aumente a produtividade e reduza custos com soluções personalizadas de automação e IA." />
+  <meta property="og:image" content="https://portifolio-vixai.vercel.app/og-image.png" />
+  <meta property="og:url" content="https://portifolio-vixai.vercel.app/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script>
     function toggleLanguage() {
-      const pt = document.querySelectorAll('.lang-pt');
-      const en = document.querySelectorAll('.lang-en');
-      pt.forEach(el => el.classList.toggle('hidden'));
-      en.forEach(el => el.classList.toggle('hidden'));
+      document.querySelectorAll('.lang-pt').forEach(el => el.classList.toggle('hidden'));
+      document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden'));
     }
   </script>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
   <!-- Header -->
-  <section class="bg-white shadow p-10 relative">
+  <header class="bg-white shadow p-10 relative">
     <div class="absolute top-6 right-6">
       <button onclick="toggleLanguage()" class="text-sm bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded">PT / EN</button>
     </div>
     <img src="logovixai.png" alt="Logo VIXAI" class="mx-auto mb-4 w-24">
-    <h1 class="text-4xl font-bold lang-pt hidden">VIXAI - Automação Inteligente</h1>
-    <h1 class="text-4xl font-bold lang-en">VIXAI - Intelligent Automation</h1>
-    <p class="text-gray-600 text-lg mt-2 lang-pt hidden">Soluções em sistemas e IA para empresas eficientes.</p>
-    <p class="text-gray-600 text-lg mt-2 lang-en">System and AI solutions for efficient companies.</p>
-    <a href="#contato" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 lang-pt hidden">Fale Conosco</a>
-    <a href="#contato" class="mt-4 inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 lang-en">Contact Us</a>
-  </section>
+    <h1 class="text-4xl font-bold lang-pt">VIXAI - Automação Inteligente</h1>
+    <h1 class="text-4xl font-bold lang-en hidden">VIXAI - Intelligent Automation</h1>
+
+    <!-- USP -->
+    <p class="text-gray-600 text-lg mt-2 lang-pt">
+      Economize até 30% do seu tempo e reduza custos em até 20% com soluções de IA personalizadas.
+    </p>
+    <p class="text-gray-600 text-lg mt-2 lang-en hidden">
+      Save up to 30% time and reduce costs by 20% with tailored AI-powered solutions.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-4 space-x-4">
+      <a href="#contato" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-pt">
+        Peça um Orçamento Grátis
+      </a>
+      <a href="#contato" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-en hidden">
+        Request a Free Quote
+      </a>
+      <a href="#contato" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 lang-pt">
+        Agende uma Demonstração
+      </a>
+      <a href="#contato" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 lang-en hidden">
+        Schedule a Demo
+      </a>
+    </div>
+  </header>
 
   <!-- Hero Pitch Section -->
   <section class="text-center py-20 px-4">
-    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 lang-en">Smart Automation & Custom Systems to Boost Your Business</h2>
-    <p class="text-lg md:text-xl mb-6 lang-en">I design AI-powered tools and backend solutions that save time, reduce costs, and scale operations — fast.</p>
-    <h2 class="text-4xl md:text-5xl font-extrabold mb-4 hidden lang-pt">Automação Inteligente e Sistemas Sob Medida para o Seu Negócio</h2>
-    <p class="text-lg md:text-xl mb-6 hidden lang-pt">Desenvolvo ferramentas com IA e sistemas backend que economizam tempo, reduzem custos e escalam operações com rapidez.</p>
-    <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded text-lg">Let’s Work Together</a>
+    <h2 class="text-4xl md:text-5xl font-extrabold lang-pt">
+      Automação Inteligente e Sistemas Sob Medida para o Seu Negócio
+    </h2>
+    <h2 class="text-4xl md:text-5xl font-extrabold lang-en hidden">
+      Smart Automation & Custom Systems to Boost Your Business
+    </h2>
+    <p class="text-lg md:text-xl mt-4 lang-pt">
+      Desenvolvo ferramentas com IA e sistemas backend que economizam até 30% do tempo, reduzem custos em 20% e escalam operações rapidamente.
+    </p>
+    <p class="text-lg md:text-xl mt-4 lang-en hidden">
+      I design AI-powered tools and backend solutions that save up to 30% time, cut costs by 20%, and scale operations fast.
+    </p>
+    <div class="mt-8 flex justify-center space-x-4">
+      <a href="#contato" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-700 lang-pt">
+        Peça um Orçamento Grátis
+      </a>
+      <a href="#contato" class="bg-green-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-green-700 lang-en hidden">
+        Request a Free Quote
+      </a>
+      <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 lang-pt">
+        Agende uma Demonstração
+      </a>
+      <a href="#contato" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700 lang-en hidden">
+        Schedule a Demo
+      </a>
+    </div>
   </section>
 
-  <!-- INÍCIO DOS PROJETOS -->
-  <!-- Mantido do HTML original -->
+  <!-- Projetos em Destaque -->
   <main class="container mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold text-center mb-10 lang-pt hidden">Projetos em Destaque</h2>
-    <h2 class="text-3xl font-bold text-center mb-10 lang-en">Featured Projects</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 lang-pt">Projetos em Destaque</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 lang-en hidden">Featured Projects</h2>
 
     <!-- Projeto 1 -->
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">1. Gerador de Códigos de Barras</h3>
-      <a href="projetos/barcode-generator.html" class="text-blue-600 hover:underline text-sm lang-pt hidden">Ver detalhes</a>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">1. Online Barcode Generator</h3>
-      <a href="projetos/barcode-generator.html" class="text-blue-600 hover:underline text-sm lang-en">View details</a>
-      <p class="mb-2 lang-pt hidden">Ferramenta web para geração de códigos de barras com impressão direta.</p>
-      <p class="mb-2 lang-en">Web tool for generating barcodes with direct printing.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">1. Gerador de Códigos de Barras</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">1. Online Barcode Generator</h3>
+      <p class="mt-2 lang-pt">
+        Ferramenta web para geração de códigos de barras com impressão direta.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        Web tool for generating barcodes with direct printing.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>HTML, JavaScript, JsBarcode</li>
-        <li class="lang-pt hidden">Geração instantânea de barcode (CODE128)</li>
-        <li class="lang-en">Instant barcode generation (CODE128)</li>
-        <li class="lang-pt hidden">Interface leve, com impressão integrada</li>
-        <li class="lang-en">Lightweight interface with integrated printing</li>
+        <li class="lang-pt">Geração instantânea de barcode (CODE128)</li>
+        <li class="lang-en hidden">Instant barcode generation (CODE128)</li>
+        <li class="lang-pt">Interface leve, com impressão integrada</li>
+        <li class="lang-en hidden">Lightweight interface with integrated printing</li>
       </ul>
+      <a href="projetos/barcode-generator.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/barcode-generator.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
 
     <!-- Projeto 2 -->
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">2. Monitor de Produtividade em Tempo Real</h3>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">2. Real-Time Productivity Monitor</h3>
-      <a href="projetos/barcode-capturer.html" class="text-blue-600 hover:underline text-sm">Ver detalhes</a>
-      <p class="mb-2 lang-pt hidden">Ferramenta desktop em Python projetada para monitorar e otimizar a produtividade na leitura de códigos de barras em ambientes operacionais.</p>
-      <p class="mb-2 lang-en">A Python-powered desktop tool designed to monitor and optimize barcode reading productivity in operational environments.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">2. Monitor de Produtividade em Tempo Real</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">2. Real-Time Productivity Monitor</h3>
+      <p class="mt-2 lang-pt">
+        Ferramenta desktop em Python projetada para monitorar e otimizar a produtividade na leitura de códigos de barras.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        A Python-powered desktop tool designed to monitor and optimize barcode reading productivity.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>Python, Pandas, Keyboard</li>
-        <li class="lang-pt hidden">Armazenamento automatizado com timestamp</li>
-        <li class="lang-en">Automated logging with timestamp</li>
-        <li class="lang-pt hidden">Execução direta via terminal</li>
-        <li class="lang-en">Run directly from terminal</li>
+        <li class="lang-pt">Armazenamento automático com timestamp</li>
+        <li class="lang-en hidden">Automated logging with timestamp</li>
+        <li class="lang-pt">Execução direta via terminal</li>
+        <li class="lang-en hidden">Run directly from terminal</li>
       </ul>
+      <a href="projetos/barcode-capturer.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/barcode-capturer.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
 
     <!-- Projeto 3 -->
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">3. Indexador de Rotas a partir de PDF</h3>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">3. Route Indexer from PDF</h3>
-      <a href="projetos/pdf-indexer.html" class="text-blue-600 hover:underline text-sm">Ver detalhes</a>
-      <p class="mb-2 lang-pt hidden">Aplicativo que extrai rotas logísticas de manifestos PDF e gera novo PDF formatado com índice.</p>
-      <p class="mb-2 lang-en">Application that extracts logistics routes from PDF manifests and generates a formatted PDF report.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">3. Indexador de Rotas a partir de PDF</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">3. Route Indexer from PDF</h3>
+      <p class="mt-2 lang-pt">
+        Aplicativo que extrai rotas logísticas de manifestos PDF e gera relatório formatado.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        Application that extracts logistics routes from PDF manifests and generates a formatted report.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>Python, PyMuPDF, FPDF, Tkinter</li>
-        <li class="lang-pt hidden">Interface de seleção de arquivo</li>
-        <li class="lang-en">File selection interface</li>
-        <li class="lang-pt hidden">Geração de relatório final com cabeçalho personalizado</li>
-        <li class="lang-en">Final report with customized header</li>
+        <li class="lang-pt">Seleção de arquivo via GUI</li>
+        <li class="lang-en hidden">GUI-based file selection</li>
+        <li class="lang-pt">PDF final com índices personalizados</li>
+        <li class="lang-en hidden">PDF with customized index</li>
       </ul>
+      <a href="projetos/pdf-indexer.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/pdf-indexer.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
 
     <!-- Projeto 4 -->
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">4. Automação de Mensagens com IA no WhatsApp</h3>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">4. WhatsApp Message Automation with AI</h3>
-      <a href="projetos/whatsapp-automation.html" class="text-blue-600 hover:underline text-sm">Ver detalhes</a>
-      <p class="mb-2 lang-pt hidden">Sistema que envia mensagens personalizadas via WhatsApp com base em perfis e IA.</p>
-      <p class="mb-2 lang-en">System for sending personalized WhatsApp messages using AI and customer profiles.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">4. Automação de Mensagens com IA no WhatsApp</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">4. WhatsApp Message Automation with AI</h3>
+      <p class="mt-2 lang-pt">
+        Sistema que envia mensagens personalizadas via WhatsApp com base em perfis e IA.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        System for sending personalized WhatsApp messages using AI.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>FastAPI, Zapier/Make, OpenAI API</li>
-        <li class="lang-pt hidden">Geração de texto automático com IA</li>
-        <li class="lang-en">AI-powered text generation</li>
-        <li class="lang-pt hidden">Logs de envio e painel de leads</li>
-        <li class="lang-en">Message logs and lead dashboard</li>
+        <li class="lang-pt">Geração de texto automático com IA</li>
+        <li class="lang-en hidden">AI-powered text generation</li>
+        <li class="lang-pt">Logs de envio e painel de leads</li>
+        <li class="lang-en hidden">Lead dashboard and logs</li>
       </ul>
+      <a href="projetos/whatsapp-automation.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/whatsapp-automation.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
 
     <!-- Projeto 5 -->
     <div class="bg-white p-6 rounded-lg shadow mb-8">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">5. Sistema de Gestão de Tarefas (Web App)</h3>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">5. Task Management System (Web App)</h3>
-      <a href="projetos/task-manager.html" class="text-blue-600 hover:underline text-sm">Ver detalhes</a>
-      <p class="mb-2 lang-pt hidden">Aplicação fullstack para gerenciamento de tarefas, com status, prazos e comentários.</p>
-      <p class="mb-2 lang-en">Fullstack application for managing tasks with status, deadlines, and comments.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">5. Sistema de Gestão de Tarefas (Web App)</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">5. Task Management System (Web App)</h3>
+      <p class="mt-2 lang-pt">
+        Aplicação fullstack para gerenciamento de tarefas com prazos, status e comentários.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        Fullstack application for managing tasks with status, deadlines, and comments.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>FastAPI, PostgreSQL, React/Tailwind</li>
-        <li class="lang-pt hidden">CRUD completo com autenticação</li>
-        <li class="lang-en">Full CRUD with authentication</li>
-        <li class="lang-pt hidden">Dashboard com filtros e atualizações em tempo real</li>
-        <li class="lang-en">Dashboard with filters and real-time updates</li>
+        <li class="lang-pt">CRUD completo com autenticação</li>
+        <li class="lang-en hidden">Full CRUD with authentication</li>
+        <li class="lang-pt">Dashboard com filtros e atualizações em tempo real</li>
+        <li class="lang-en hidden">Dashboard with filters and real-time updates</li>
       </ul>
+      <a href="projetos/task-manager.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/task-manager.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
 
     <!-- Projeto 6 -->
     <div class="bg-white p-6 rounded-lg shadow">
-      <h3 class="text-2xl font-semibold mb-2 lang-pt hidden">6. Bot de Extração de Dados com Dashboard</h3>
-      <h3 class="text-2xl font-semibold mb-2 lang-en">6. Data Extraction Bot with Dashboard</h3>
-      <a href="projetos/scraping-dashboard.html" class="text-blue-600 hover:underline text-sm">Ver detalhes</a>
-      <p class="mb-2 lang-pt hidden">Sistema que extrai dados públicos de sites e apresenta análises em dashboard interativo.</p>
-      <p class="mb-2 lang-en">System that scrapes public data from websites and presents it in an interactive dashboard.</p>
-      <ul class="list-disc list-inside mb-2 text-sm text-gray-700">
+      <h3 class="text-2xl font-semibold lang-pt">6. Bot de Extração de Dados com Dashboard</h3>
+      <h3 class="text-2xl font-semibold lang-en hidden">6. Data Extraction Bot with Dashboard</h3>
+      <p class="mt-2 lang-pt">
+        Sistema que extrai dados públicos de sites e apresenta análises em dashboard interativo.
+      </p>
+      <p class="mt-2 lang-en hidden">
+        System that scrapes public data from websites and presents it in an interactive dashboard.
+      </p>
+      <ul class="list-disc list-inside mt-2 text-sm text-gray-700">
         <li>Python, BeautifulSoup/Selenium, Streamlit</li>
-        <li class="lang-pt hidden">Scraping de sites e análise em tempo real</li>
-        <li class="lang-en">Real-time web scraping and analysis</li>
-        <li class="lang-pt hidden">Interface amigável para usuários não técnicos</li>
-        <li class="lang-en">User-friendly interface for non-technical users</li>
-      </ul>
+        <li class="lang-pt">Scraping de sites e análise em tempo real</li>
+        <li class="lang-en hidden">Real-time web scraping and analysis</li>
+        <li class="lang-pt">Interface amigável para usuários não técnicos</li>}</li></ul>
+      <a href="projetos/scraping-dashboard.html" class="mt-4 inline-block text-blue-600 hover:underline lang-pt">Ver detalhes</a>
+      <a href="projetos/scraping-dashboard.html" class="mt-4 inline-block text-blue-600 hover:underline lang-en hidden">View details</a>
     </div>
-</main>
+  </main>
 
   <!-- About Section -->
   <section class="bg-white py-16 px-6 md:px-20">
-    <h2 class="text-3xl font-bold mb-4 lang-en">About Me</h2>
-    <h2 class="text-3xl font-bold mb-4 hidden lang-pt">Sobre Mim</h2>
+    <h2 class="text-3xl font-bold mb-4 lang-pt">Sobre Mim</h2>
+    <h2 class="text-3xl font-bold mb-4 lang-en hidden">About Me</h2>
     <div class="md:flex items-start gap-8">
       <img src="/profile.jpg" alt="Almeida Photo" class="w-40 h-40 rounded-full object-cover mb-6 md:mb-0">
       <div>
-        <p class="mb-4 lang-en">My name is Almeida — a systems engineer and data analyst based in the Netherlands.</p>
-        <p class="mb-4 lang-en">I specialize in building custom automation solutions using Python, FastAPI, PostgreSQL, and AI.</p>
-        <p class="mb-4 lang-en">With a strong background in industrial engineering and business systems optimization, I help companies modernize operations and eliminate repetitive work.</p>
-        <p class="lang-en">Whether you're a small business or a growing startup, I can help you implement smart tools that make your workflows faster, cheaper, and more reliable.</p>
-
-        <p class="mb-4 hidden lang-pt">Me chamo Almeida — engenheiro de sistemas e analista de dados baseado na Holanda.</p>
-        <p class="mb-4 hidden lang-pt">Sou especializado no desenvolvimento de soluções de automação sob medida com Python, FastAPI, PostgreSQL e IA.</p>
-        <p class="mb-4 hidden lang-pt">Tenho formação em engenharia e experiência com otimização de processos de negócios.</p>
-        <p class="hidden lang-pt">Se você é uma PME ou startup, posso ajudar a digitalizar suas operações com ferramentas inteligentes que reduzem custos e aumentam a eficiência.</p>
+        <p class="mb-4 lang-pt">Me chamo Almeida — engenheiro de sistemas e analista de dados baseado na Holanda.</p>
+        <p class="mb-4 lang-en hidden">My name is Almeida — a systems engineer and data analyst based in the Netherlands.</p>
+        <p class="mb-4 lang-pt">Sou especializado no desenvolvimento de soluções de automação sob medida com Python, FastAPI, PostgreSQL e IA.</p>
+        <p class="mb-4 lang-en hidden">I specialize in building custom automation solutions using Python, FastAPI, PostgreSQL, and AI.</p>
+        <p class="lang-pt">Tenho formação em engenharia e experiência com otimização de processos de negócios.</p>
+        <p class="lang-en hidden">With a strong background in industrial engineering and business systems optimization, I help companies modernize operations and eliminate repetitive work.</p>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
   <section class="bg-gray-100 py-16 px-6 md:px-20">
-    <h2 class="text-3xl font-bold mb-6 text-center lang-en">What Clients Say</h2>
-    <h2 class="text-3xl font-bold mb-6 text-center hidden lang-pt">O que dizem os clientes</h2>
+    <h2 class="text-3xl font-bold mb-6 text-center lang-pt">O que dizem os clientes</h2>
+    <h2 class="text-3xl font-bold mb-6 text-center lang-en hidden">What Clients Say</h2>
     <div class="grid md:grid-cols-2 gap-10">
       <blockquote class="bg-white shadow rounded p-6">
-        <p class="italic lang-en">“Almeida quickly understood our problem and delivered a custom automation system that saved us 20+ hours per week.”</p>
-        <p class="italic hidden lang-pt">“Almeida entendeu rapidamente nosso problema e entregou um sistema de automação sob medida que nos economizou mais de 20 horas por semana.”</p>
-        <footer class="mt-4 text-sm text-gray-600">— Client from logistics industry, Netherlands</footer>
+        <p class="italic lang-pt">“Almeida entendeu rapidamente nosso problema e entregou um sistema de automação sob medida que nos economizou mais de 20 horas por semana.”</p>
+        <p class="italic lang-en hidden">“Almeida quickly understood our problem and delivered a custom automation system that saved us 20+ hours per week.”</p>
+        <footer class="mt-4 text-sm text-gray-600">— Cliente da indústria logística, Holanda</footer>
       </blockquote>
       <blockquote class="bg-white shadow rounded p-6">
-        <p class="italic lang-en">“We hired him to optimize our reporting workflow. Now everything is automated, and the results are impressive.”</p>
-        <p class="italic hidden lang-pt">“Contratamos ele para otimizar nosso fluxo de relatórios. Agora tudo é automatizado, e os resultados são impressionantes.”</p>
-        <footer class="mt-4 text-sm text-gray-600">— Small business owner, Belgium</footer>
+        <p class="italic lang-pt">“Contratamos ele para otimizar nosso fluxo de relatórios. Agora tudo é automatizado, e os resultados são impressionantes.”</p>
+        <p class="italic lang-en hidden">“We hired him to optimize our reporting workflow. Now everything is automated, and the results are impressive.”</p>
+        <footer class="mt-4 text-sm text-gray-600">— Pequeno empreendedor, Bélgica</footer>
       </blockquote>
     </div>
   </section>
 
-  <!-- Seção Contato original mantida -->
+  <!-- Contato Section -->
   <section id="contato" class="bg-blue-50 py-12">
-    <div class="container mx-auto text-center">
-      <h2 class="text-2xl font-bold mb-4 lang-pt hidden">Entre em contato</h2>
-      <h2 class="text-2xl font-bold mb-4 lang-en">Get in Touch</h2>
-      <p class="mb-6 lang-pt hidden">Quer transformar sua operação com automação inteligente? Fale conosco.</p>
-      <p class="mb-6 lang-en">Want to transform your operation with smart automation? Contact us.</p>
-      <a href="https://wa.me/+31616286396" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-pt hidden">WhatsApp</a>
-      <a href="https://wa.me/+31616286396" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-en">WhatsApp</a>
+    <div class="container mx-auto max-w-md">
+      <h2 class="text-2xl font-bold mb-4 lang-pt">Entre em contato</h2>
+      <h2 class="text-2xl font-bold mb-4 lang-en hidden">Get in Touch</h2>
+      <p class="mb-6 lang-pt">Quer transformar sua operação com automação inteligente? Fale conosco.</p>
+      <p class="mb-6 lang-en hidden">Want to transform your operation with smart automation? Contact us.</p>
+
+      <!-- Contact Form -->
+      <form action="mailto:vixainlbr@gmail.com" method="post" enctype="text/plain" class="bg-white p-6 rounded-lg shadow mb-6">
+        <div class="mb-4">
+          <label for="nome" class="block mb-1 text-gray-700 lang-pt">Nome</label>
+          <label for="nome" class="block mb-1 text-gray-700 lang-en hidden">Name</label>
+          <input type="text" id="nome" name="Nome" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block mb-1 text-gray-700 lang-pt">Email</label>
+          <label for="email" class="block mb-1 text-gray-700 lang-en hidden">Email</label>
+          <input type="email" id="email" name="Email" required class="w-full border rounded px-3 py-2" />
+        </div>
+        <div class="mb-4">
+          <label for="mensagem" class="block mb-1 text-gray-700 lang-pt">Projeto</label>
+          <label for="mensagem" class="block mb-1 text-gray-700 lang-en hidden">Project</label>
+          <textarea id="mensagem" name="Mens
+
+        senha" rows="4" required class="w-full border rounded px-3 py-2"></textarea>
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 lang-pt">Enviar Mensagem</button>
+        <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 lang-en hidden">Send Message</button>
+      </form>
+
+      <!-- WhatsApp CTA -->
+      <div class="text-center">
+        <a href="https://wa.me/+31616286396" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-pt">WhatsApp</a>
+        <a href="https://wa.me/+31616286396" class="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 lang-en hidden">WhatsApp</a>
+      </div>
     </div>
   </section>
 
-  <!-- Rodapé -->
+  <!-- Footer -->
   <footer class="text-center p-6 text-gray-500 text-sm">
     &copy; 2025 VIXAI. Todos os direitos reservados.
   </footer>
+
 </body>
 </html>
